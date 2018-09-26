@@ -1,6 +1,9 @@
 var express = require("express");
 var app = express();
 
+var supplies;
+var user;
+var newUser;
 
 app.set("view engine", "ejs");
 
