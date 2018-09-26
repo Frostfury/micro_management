@@ -3,20 +3,23 @@
      <header class="jumbotron">
          <div class="container">
              <h1>Welcome To HelpPro</h1>
-             <p>Effiecent resourse</p>
+             <p>Effiecent Resourse</p>
              <p>
-                <a class="btn btn-primary btn-large" href="new">Add New Campground</a>
+                <a class="btn btn-primary btn-large" href="new">Add New Supply</a>
              </p>
          </div>
      </header>
      
      <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         <% supplies.forEach(function(campground){ %>
+            <% if (campground.Amount == 0) { %>
+                <%    return;  %>
+                <%  } %>
             <div class="col-md-3 col-sm-6">
                 <div class="thumbnail">
-                   <img src="<%= campground.Area %>">
                    <div class="caption">
-                       <h4><%= campground.name %></h4>
+                       <h3><%= campground.name %></h3>
+                       <h4><%= campground.Area %>: <%= campground.Amount %></h4>
                    </div>
                 </div>
             </div>

@@ -3,15 +3,16 @@ var app = express();
 var bodyparser=require("body-parser");
 
 var supplies = [
-    {name: "Salmon Creek", Amount: "https://farm9.staticflickr.com/8442/7962474612_bf2baf67c0.jpg"},
-    {name: "Granite Hill", Amount: "https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg"},
-    {name: "Mountain Goat's Rest", Amount: "https://farm7.staticflickr.com/6057/6234565071_4d20668bbd.jpg"},
-    {name: "Salmon Creek", image: "https://farm9.staticflickr.com/8442/7962474612_bf2baf67c0.jpg"},
-    {name: "Granite Hill", image: "https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg"},
-    {name: "Mountain Goat's Rest", image: "https://farm7.staticflickr.com/6057/6234565071_4d20668bbd.jpg"},
-    {name: "Salmon Creek", image: "https://farm9.staticflickr.com/8442/7962474612_bf2baf67c0.jpg"},
-    {name: "Granite Hill", image: "https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg"},
-    {name: "Mountain Goat's Rest", image: "https://farm7.staticflickr.com/6057/6234565071_4d20668bbd.jpg"}
+    {name: "Food", Amount: 300, Area:"kakkanad" , Contact:8769865243},
+    {name: "Cloth", Amount: 120, Area:"Kaloor" , Contact:8549865243},
+    {name: "Food", Amount: 0, Area:"kakkanad" , Contact:9898567483},
+    {name: "Medicine",  Amount: 10, Area:"Eloor" , Contact:5979384567},
+    {name: "Medicine",  Amount: 5, Area:"palarivottom" , Contact:89864234},
+    {name: "Bed", Amount: 6, Area:"kalamashery" , Contact:8989795932},
+    {name: "Napkins", Amount: 20, Area:"kaloor" , Contact:7070654367},
+    {name: "Soap", Amount: 12, Area:"fort kochi" , Contact:9034567821},
+    {name: "Cloth", Amount: 30, Area:"edapally" , Contact:8756556788},
+    {name: "Napkins", Amount: 10, Area:"Eloor" , Contact:9090654367}
 ];
 var user;
 var newUser;
@@ -30,14 +31,13 @@ app.get("/Supply",function(req,res){
 })
 
 app.post("/Supply", function(req, res){
-    var name = req.body.name;
+    var name = req.body.Item;
     var Amount = req.body.Amount;
     var Area = req.body.Area;
     var Contact = req.body.Contact;
     var newSupplies = {name: name, Amount: Amount,Area:Area,Contact:Contact}
     supplies.push(newSupplies);
-    //redirect back to campgrounds page
-    res.redirect("/campgrounds");
+    res.redirect("/Supply");
 });
 
  app.get("/contribute",function(req,res){
