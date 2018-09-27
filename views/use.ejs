@@ -1,0 +1,55 @@
+<% include partials/header %>
+<div class="container">
+        <header class="jumbotron">
+            <div class="container">
+                <h1>Use</h1>
+            </div>
+        </header>
+      
+        <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+             <% var i=0; %>
+                <% supplies.forEach(function(campground){ %>
+                    <% i++; %>
+                    <% if (campground.name==n && campground.Area==ar && campground.Amount==am && campground.Contact==con){ %>
+                        <% campground.Area=ar %>
+                        <% campground.Amount=am %>
+                        <% campground.Contact=con %>
+                        <% campground.name=n %>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="thumbnail">
+                            <div class="caption">
+                                <h2><%= campground.name %></h2>
+                                <h2><%= campground.Area %></h2> <h2><%= campground.Amount %></h2>
+                                <h2>Contact  :<%= campground.Contact%></h2>
+                            
+                                <%  }   %>    
+                                <% }); %>
+                                <div class="container">
+                <div class="row">
+                    <h1 style="text-align: center;">Supplies needed</h1>
+                    <div style="width: 30%; margin: 25px auto;">
+                        <form action="/:i/update" method="POST">
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="Ino" placeholder="No of Supplies used">
+                            </div>
+                            <div class="form-group">
+                                    <input class="form-control" type="hidden" name="In" value = <% i %> > 
+                                </div>
+                        
+                            <div class="form-group">
+                                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                            </div>
+                        </form>
+                        <a href="/">Go Back</a>
+                    </div>
+                </div>
+            </div>
+                                
+                            </div>
+                            </div>
+                        </div>
+                  
+            </div>
+    </div>
+
+<% include partials/footer %>

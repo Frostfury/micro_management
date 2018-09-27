@@ -16,6 +16,10 @@ var supplies = [
 ];
 var user;
 var newUser;
+var n=0;
+    var am=0;
+    var ar=0;
+    var con=0;
 app.use(bodyparser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
@@ -40,17 +44,36 @@ app.post("/Supply", function(req, res){
     res.redirect("/Supply");
 });
 
+app.post("/:id/update", function(req, res){
+    var Ino = req.body.Ino;
+    supplies.forEach(function(campground){ 
+         if (campground.name==n && campground.Area==ar && campground.Amount==am && campground.Contact==con)
+         {
+            campground.Amount=campground.Amount-Ino;
+        res.redirect("/Supply");
+}
+    });
+    });
+
+app.get("/:name/:area/:amount/:contact/use",function(req,res){
+     n=req.params.name;
+     am=req.params.amount;
+     ar=req.params.area;
+     con=req.params.contact;
+
+    
+    res.render("use.ejs",{supplies:supplies,n:n,am:am,ar:ar,con:con});
+});
  app.get("/contribute",function(req,res){
     res.render("contribute.ejs");
-})
+});
 
 app.get("/request",function(req,res){
     res.render("request.ejs");
-})
+});
 
  
 app.listen(3000,function()
 {
     console.log("It's ON")
- }
- )
+ });
