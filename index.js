@@ -10,7 +10,7 @@ var supplies = [
     {name: "Medicine",  Amount: 5, Area:"palarivottom" , Contact:89864234},
     {name: "Bed", Amount: 6, Area:"kalamashery" , Contact:8989795932},
     {name: "Napkins", Amount: 20, Area:"kaloor" , Contact:7070654367},
-    {name: "Soap", Amount: 12, Area:"fort kochi" , Contact:9034567821},
+    {name: "Soap", Amount: 12, Area:"kochi" , Contact:9034567821},
     {name: "Cloth", Amount: 30, Area:"edapally" , Contact:8756556788},
     {name: "Napkins", Amount: 10, Area:"Eloor" , Contact:9090654367}
 ];
